@@ -15,6 +15,8 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.draw.clip
@@ -23,8 +25,8 @@ import androidx.compose.ui.text.font.FontWeight
 import com.example.lab_2.viewModel.CharacterViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
+@OptIn(ExperimentalMaterial3Api::class)
 fun CharacterScreen(viewModel: CharacterViewModel = viewModel()) {
     val characters by viewModel.characters.collectAsState()
 
@@ -32,6 +34,9 @@ fun CharacterScreen(viewModel: CharacterViewModel = viewModel()) {
         topBar = {
             TopAppBar(
                 title = { Text(text = "Rick and Morty") },
+                actions={
+                    IconButton(onClick = {viewModel.fetchCharacters()}) { Icon(Icons.Default.Refresh, contentDescription = "О приложении")}
+                }
             )
         }
     ) { innerPadding ->

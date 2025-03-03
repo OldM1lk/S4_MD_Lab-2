@@ -12,9 +12,9 @@ import kotlinx.coroutines.launch
 class CharacterViewModel : ViewModel() {
     private val _characters = MutableStateFlow<List<Character>>(emptyList())
     val characters: StateFlow<List<Character>> = _characters
-    val pageNumber: Int = (0..42).random()
 
-    private fun fetchCharacters() {
+    fun fetchCharacters() {
+        val pageNumber: Int = (0..42).random()
         viewModelScope.launch {
             try {
                 Log.d("CharacterViewModel", "Загрузка персонажей...")
