@@ -71,7 +71,10 @@ fun CharacterScreen(viewModel: CharacterViewModel = viewModel()) {
 }
 
 @Composable
-fun CharacterList(characters: List<com.example.lab_2.model.Character>, modifier: Modifier = Modifier) {
+fun CharacterList(
+    characters: List<com.example.lab_2.model.Character>,
+    modifier: Modifier = Modifier
+) {
     LazyColumn(modifier = modifier) {
         items(characters) {
             CharacterItem(it)
