@@ -1,9 +1,9 @@
-package com.example.lab_2.viewModel
+package com.example.lab_2.ui.screens
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.lab_2.model.Character
+import com.example.lab_2.model.data.Character
 import com.example.lab_2.model.network.RickAndMortyApi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

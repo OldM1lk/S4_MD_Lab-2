@@ -1,4 +1,4 @@
-package com.example.lab_2.ui
+package com.example.lab_2.ui.screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -28,8 +28,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
-import com.example.lab_2.model.Character
-import com.example.lab_2.viewModel.CharacterViewModel
+import com.example.lab_2.AppTopBar
+import com.example.lab_2.model.data.Character
 
 @Composable
 fun CharacterScreen(viewModel: CharacterViewModel = viewModel()) {
@@ -64,16 +64,21 @@ fun CharacterList(
 
 @Composable
 fun CharacterItem(character: Character) {
-    CharacterCard(character)
+    CharacterCard(
+        character,
+        when (character.species) {
+            "Human" -> Modifier
+            "Alien" -> Modifier.background(Color.Green.copy(0.25f))
+            else -> Modifier.background(Color.Blue.copy(0.25f))
+        }
+    )
 }
 
 @Composable
-fun CharacterCard(character: Character) {
-    val modifier = when (character.species) {
-        "Human" -> Modifier
-        "Alien" -> Modifier.background(Color.Green.copy(0.25f))
-        else -> Modifier.background(Color.Blue.copy(0.25f))
-    }
+fun CharacterCard(
+    character: Character,
+    modifier: Modifier = Modifier
+) {
     Card(
         modifier = Modifier
             .fillMaxWidth()

@@ -1,4 +1,4 @@
-package com.example.lab_2.model
+package com.example.lab_2.model.data
 
 data class Character(
     val id: Int,

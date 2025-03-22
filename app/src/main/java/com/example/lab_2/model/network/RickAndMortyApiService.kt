@@ -1,7 +1,7 @@
 package com.example.lab_2.model.network
 
 import retrofit2.http.GET
-import com.example.lab_2.model.CharacterResponse
+import com.example.lab_2.model.data.CharacterResponse
 import retrofit2.http.Query
 
 interface RickAndMortyApiService {
